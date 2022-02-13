@@ -1,0 +1,10 @@
+{
+    "entry": "main.js",
+    "id": "shapezio-mod-demo",
+    "version": "1.0.0",
+    "name": "shapezio-mod-demo",
+    "author": "Yoshihiro Tanaka",
+    "description": "",
+    "website": "",
+    "settings": {}
+}
