@@ -38,6 +38,10 @@ class ModBuilding extends ModMetaBuilding {
         ];
     }
 
+    getIsUnlocked(root) {
+        return true;
+    }
+
     setupEntityComponents(entity, root) {
         entity.addComponent(new ItemProcessorComponent({}));
         entity.addComponent(new ItemAcceptorComponent({
