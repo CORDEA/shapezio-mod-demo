@@ -2,7 +2,7 @@ import { enumDirection, Vector } from "shapez/core/vector";
 import { BeltUnderlaysComponent } from "shapez/game/components/belt_underlays";
 import { ItemAcceptorComponent } from "shapez/game/components/item_acceptor";
 import { ItemEjectorComponent } from "shapez/game/components/item_ejector";
-import { ItemProcessorComponent } from "shapez/game/components/item_processor";
+import { enumItemProcessorTypes, ItemProcessorComponent } from "shapez/game/components/item_processor";
 import { defaultBuildingVariant } from "shapez/game/meta_building";
 import { Mod } from "shapez/mods/mod";
 import { ModMetaBuilding } from "shapez/mods/mod_meta_building";
@@ -44,7 +44,10 @@ class ModBuilding extends ModMetaBuilding {
     }
 
     setupEntityComponents(entity, root) {
-        entity.addComponent(new ItemProcessorComponent({}));
+        entity.addComponent(new ItemProcessorComponent({
+            inputsPerCharge: 1,
+            processorType: enumItemProcessorTypes.balancer,
+        }));
         entity.addComponent(new ItemAcceptorComponent({
             slots: [
                 {
