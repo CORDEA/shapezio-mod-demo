@@ -1,3 +1,7 @@
+import { enumDirection, Vector } from "shapez/core/vector";
+import { ItemAcceptorComponent } from "shapez/game/components/item_acceptor";
+import { ItemEjectorComponent } from "shapez/game/components/item_ejector";
+import { ItemProcessorComponent } from "shapez/game/components/item_processor";
 import { defaultBuildingVariant } from "shapez/game/meta_building";
 import { Mod } from "shapez/mods/mod";
 import { ModMetaBuilding } from "shapez/mods/mod_meta_building";
@@ -35,6 +39,34 @@ class ModBuilding extends ModMetaBuilding {
     }
 
     setupEntityComponents(entity, root) {
+        entity.addComponent(new ItemProcessorComponent({}));
+        entity.addComponent(new ItemAcceptorComponent({
+            slots: [
+                {
+                    pos: new Vector(0, 0),
+                    direction: enumDirection.bottom,
+                    filter: "shape",
+                },
+                {
+                    pos: new Vector(0, 0),
+                    direction: enumDirection.right,
+                    filter: "shape",
+                },
+                {
+                    pos: new Vector(0, 0),
+                    direction: enumDirection.left,
+                    filter: "shape",
+                },
+            ],
+        }));
+        entity.addComponent(new ItemEjectorComponent({
+            slots: [
+                {
+                    pos: new Vector(0, 0),
+                    direction: enumDirection.top,
+                },
+            ],
+        }));
     }
 }
 
