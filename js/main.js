@@ -1,4 +1,5 @@
 import { enumDirection, Vector } from "shapez/core/vector";
+import { BeltUnderlaysComponent } from "shapez/game/components/belt_underlays";
 import { ItemAcceptorComponent } from "shapez/game/components/item_acceptor";
 import { ItemEjectorComponent } from "shapez/game/components/item_ejector";
 import { ItemProcessorComponent } from "shapez/game/components/item_processor";
@@ -70,6 +71,14 @@ class ModBuilding extends ModMetaBuilding {
                     direction: enumDirection.top,
                 },
             ],
+        }));
+        entity.addComponent(new BeltUnderlaysComponent({
+            underlays: [
+                {
+                    pos: new Vector(0, 0),
+                    direction: enumDirection.top,
+                },
+            ]
         }));
     }
 }
